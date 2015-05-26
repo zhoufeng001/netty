@@ -44,9 +44,8 @@ public class EchoClient {
 				ByteBuf reqData = Unpooled.buffer();
 				reqData.writeInt(i);
 				reqData.writeBytes(("hello" + i).getBytes());
-				ctx.write(reqData);  
+				ctx.writeAndFlush(reqData);  
 			}
-			ctx.flush();
 			ctx.fireChannelActive() ;
 		}
 		

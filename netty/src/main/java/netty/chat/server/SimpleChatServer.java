@@ -81,7 +81,7 @@ public class SimpleChatServer {
 		bizHandler.regist(2, new LogoutHandler(sessionContainer)); 
 		bizHandler.regist(3, new SendMessageHandler(sessionContainer)); 
 		
-		new SimpleChatServer(8888, userService ,sessionContainer).start() ;  
+		new SimpleChatServer(9999, userService ,sessionContainer).start() ;  
 		
 	}
 

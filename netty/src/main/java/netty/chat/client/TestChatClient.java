@@ -103,7 +103,7 @@ public class TestChatClient {
 		BizMessageHandlerMap handlerMap = BizMessageHandlerMap.getInstance();
 		handlerMap.regist(1, new LoginResponseHandler());  
 		
-		new TestChatClient().connect("127.0.0.1", 8888); 
+		new TestChatClient().connect("127.0.0.1", 9999); 
 		
 	}
 
