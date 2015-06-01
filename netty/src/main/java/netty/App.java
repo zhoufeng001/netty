@@ -1,7 +1,11 @@
 package netty;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Random;
+
 
 /**
  * Hello world!
@@ -11,18 +15,20 @@ public class App
 {
     public static void main( String[] args )
     {
-        for (int i = 0; i < 100 ; i++) {
-        	ByteBuf reqData = Unpooled.buffer();
-			reqData.writeInt(i);
-			reqData.writeBytes(("hello" + i).getBytes());
-			byte[] bytes = new byte[reqData.readableBytes()];
-			reqData.readBytes(bytes);
-			for (int j = 0; j < bytes.length; j++) {
-				if(bytes[j] == '\001'){
-					System.out.println(i + " " + j); 
-					break ;
-				}
-			}
+    	
+    	Random random = new Random() ;
+    	List<Integer> array = new ArrayList<Integer>();
+    	for (int i = 0; i < 1000; i++) {
+    		array.add(random.nextInt(10000));
 		}
+    	
+    	Collections.sort(array, new Comparator<Integer>() {
+    		int count = 0 ;
+			public int compare(Integer o1, Integer o2) {
+				System.out.println(++count);  
+				return o1.compareTo(o2);  
+			}
+		}); 
+    	
     }
 }
